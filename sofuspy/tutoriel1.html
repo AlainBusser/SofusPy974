@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+  <title>Blockly : l'extension SofusPy</title>
+	<script src="../keys/blockly_compressed.js"></script>
+	<script src="../utils/css_accessible.js"></script>
+	<script src="../keys/blocks_compressed.js"></script>
+	<script src="../keys/javascript_compressed.js"></script>
+	<script src="../keys/python_compressed.js"></script>
+	<script src="../keys/fr.js"></script>
+	<script src="../utils/fichiers.js"></script>
+	<script src="../utils/affichage.js"></script>
+	<script src="../editeurs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../editeurs/skulpt/skulpt.min.js" type="text/javascript"></script>
+	<script src="../editeurs/skulpt/skulpt-stdlib.js" type="text/javascript"></script>
+	<script src="../editeurs/editeur_python.js" type="text/javascript"></script> 
+	<script src="../editeurs/fichiers.js"></script>    
+	<script src="../utils/jquery/jquery-2.2.1.min.js"></script>
+	<script src="sofus/tortue.js"></script>
+    <script src="sofus/blocks_complements.js"></script>
+    <script src="sofus/javascript_complements.js"></script>
+    <script src="sofus/fr_complements.js"></script>
+    <script src="sofus/python_complements.js"></script>
+	<script src="./blocks_vectors.js"></script>
+	<script src="./javascript_vectors.js"></script>
+	<script src="./python_vectors.js"></script>
+	<script src="./commandes/interpreter_texte.js"></script>
+	<script src="./commandes/interpreter_scratch.js"></script>
+	<script src="jszip.js"></script>
+	<script src="fichiers.js"></script>
+</head>
+
+<body>
+
+<div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
+<center>
+<div id="boutons_blockly">
+    <button onclick="runBlockly()"><img src="img/flag.png">Executer</button>
+	<input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
+	<button type="button" onclick="sauverFichier()"><img src="img/sofus1.png">Sauver</button>
+	<button type="button" onclick="blocklyToEditor(editor, getPythonText())"><img src="img/python.png">Editeur</button>
+    <button onclick="plierDeplier()">Plier/Deplier</button>
+	<button type="button" onclick="blocklyToCommandes(editor)" class="boutons">Commandes</button>
+
+</div>
+</center>
+
+<div id="editor" style="height:480px; width:100%; border: solid 1px gray; font-size:12pt"></div> 
+<center>
+<div id="boutons_editor">
+	<button type="button" onclick="runPython(editor)" class="boutons"><img src="img/flag.png">Executer</button>
+	<input type="file" id="fileToLoadEdit" style="display: none" onchange="ouvrirFichierEdit(editor);" />
+	<button onclick="ouvrirClickEdit();"><img src="img/python.png">Ouvrir</button>
+	<button type="button" onclick="sauverFichierEdit(editor)"><img src="img/python.png">Sauver</button>
+	<button type="button" onclick="editeurToBlockly()" class="boutons"><img src="img/blockly.png">Retour</button>
+	<button type="button" onclick="plierDeplierEditeur()" class="boutons">Plier/Deplier</button>
+	<button type="button" onclick="commandesToBlockly()" class="boutons">Commandes</button>
+</div>
+</center>
+
+<pre id="message" class="message"></pre>
+<pre id="output"  class="output"></pre>
+<style>
+		.output { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt ;font-weight:normal; color:blue}
+		.message { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt ;font-weight:normal; color:red}
+</style>
+
+
+<xml id="toolbox" style="display: none">
+	<category name="Variables" custom="VARIABLE"></category>
+    <category name="Entrees-Sorties">
+		<block type="text_print">
+			<value name="TEXT">
+				<shadow type="text">
+					<field name="TEXT">blabla</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="text_print">
+			<value name="TEXT">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="text_prompt">
+			<field name="TYPE">NUMBER</field>
+		</block>
+		<block type="scratch_demander">
+			<value name="TEXT">
+				<block type="text">
+					<field name="TEXT"></field>
+				</block>
+			</value>
+		</block>
+	</category>
+    <category name="Math">
+		<category name="constantes">
+			<block type="math_number"></block>
+			<block type="math_constant"></block>
+		</category>
+		<category name="opérations">
+			<block type="math_arithmetic">
+				<value name="A">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="B">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_modulo"></block>
+			<block type="math_quotient"></block>
+		</category>
+		<category name="fonctions">
+			<block type="math_single">
+				<field name="OP">ROOT</field>
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_trig">
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">45</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_number_property"></block>
+			<block type="math_random_int">
+				<value name="FROM">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+				<value name="TO">
+					<block type="math_number">
+						<field name="NUM">100</field>
+					</block>
+				</value>
+			</block>
+
+        </category> 
+		<category name="transformations (sofus)">
+			<category name="transformations">
+				<block type="sophus_augmenter">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">1</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_diminuer">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">1</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_multiplier">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_diviser">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+			</category>
+			<category name="pourcentages">
+				<block type="sophus_multiplier_fract">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_diviser_fract">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">3</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_augmenter_fract">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_diminuer_fract">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+			</category>
+			<category name="fonctions">
+				<block type="sophus_inverser"></block>
+				<block type="sophus_doubler"></block>
+				<block type="sophus_carre"></block>
+				<block type="sophus_puissance">
+					<value name="POW">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+			</category>
+			<category name="arrondis">
+				<block type="sophus_arrondir">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+				<block type="sophus_tronquer">
+					<value name="DELTA">
+						<block type="math_number">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+			</category>
+		</category>
+	</category>
+    <category name="Conditionnelles">
+		<block type="controls_if"></block>
+		<block type="logic_compare"></block>
+		<block type="logic_operation"></block>
+		<block type="logic_boolean"></block>
+    </category>
+    <category name="Boucles">
+		<block type="controls_for">
+			<field name="VAR">k</field>
+			<value name="FROM">
+				<block type="math_number">
+					<field name="NUM">1</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="NUM">10</field>
+				</block>
+			</value>
+			<value name="BY">
+				<block type="math_number">
+					<field name="NUM">1</field>
+				</block>
+			</value>
+		</block>
+		<block type="controls_whileUntil"></block>
+		<block type="controls_repeat_ext">
+			<value name="TIMES">
+				<block type="math_number">
+					<field name="NUM">10</field>
+				</block>
+			</value>
+		</block>
+    </category> 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</xml>
+
+<script>
+	document.getElementById("blocklyDiv").style.height=(window.innerHeight-200) + "px";
+	Blockly.Msg.VARIABLES_SET = "mettre %2 dans %1";
+	Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH = "regrouper";
+	var workspace = Blockly.inject('blocklyDiv',
+		{
+			media: '../keys/media/',
+			zoom: {	controls: true,
+					wheel: true,
+					startScale: 1.1,	// au départ, la taille des blocs est multipliée par 1.1
+					maxScale: 3,
+					minScale: 0.5,
+					scaleSpeed: 1.2
+				  },
+			toolbox: document.getElementById('toolbox')
+		});
+	var editor = ace.edit("editor");
+	editor.getSession().setUseSoftTabs(false); 
+	editor.getSession().setMode("ace/mode/python");
+	editeurToBlockly();	// pour le masquer
+	//blocklyToEditor(editor, "");
+	window.getText = function getText() {
+		return editor.getValue();
+	}
+	window.setText = function setText(texte) {
+		editor.setValue(texte, -1);
+	}
+	window.insererText = function insererText(txt) {
+		editor.insert(txt);
+	}
+	window.getCursorPos = function getCursorPos() {	
+		var pos = editor.getCursorPosition();
+		return editor.getSession().getDocument().positionToIndex(pos,Number(0));
+	}
+	window.getSelectedText = function getSelectedText() {
+		return editor.session.getTextRange(editor.getSelectionRange()); 
+		//return editor.getSelection();
+	}
+	
+	function demo1() {
+		workspace.clear(); 
+		Blockly.Xml.domToWorkspace(workspace, document.getElementById('demo1'));
+	}
+    function runBlockly() {
+	  effacerOutput();
+      window.LoopTrap = 20000;
+      Blockly.JavaScript.INFINITE_LOOP_TRAP =
+          'if (--window.LoopTrap == 0) throw "Nombre d\'iterations limité à 20000 : passez à Python (bouton Editeur)";\n';
+      var code = Blockly.JavaScript.workspaceToCode(workspace);
+      try {
+        eval(code);
+      } catch (e) {
+        alert(e);
+      }
+    }
+	function getPythonText() {
+		Blockly.Python.tortues = 0;
+		try {
+			var code_js = Blockly.JavaScript.workspaceToCode(Blockly.mainWorkspace);
+			if (code_js.indexOf("totos[")>0) {	
+				Blockly.Python.tortues = 1;
+			}
+			if (code_js.indexOf("new Tortue(")>0) {	
+				Blockly.Python.tortues = 2;
+			}
+			var code = Blockly.Python.workspaceToCode(Blockly.mainWorkspace);
+			if (Blockly.Python.tortues == 1) {
+				code = "from turtle import * \n" + code;
+			}
+			else if (Blockly.Python.tortues == 2) {
+				code = "from turtle import * \n\n" 
+					+ "tortues={}  # pour stocker toutes les tortues (sauf celle par défaut)\n\n"
+					+ code
+					+ "\nhideturtle()  # pour masquer la tortue par défaut";
+			}
+			// code = "# code Python cree par Blockly \n\n" + code;
+		} catch (e) {
+			code = "# Blockly n'a pu etre traduit en Python";
+		}
+		return code;
+	}
+	Println("1) Il y a un exemple Blockly à tester...");
+	Println("2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...");
+</script>
+
+<script>
+/*
+	function interpreterVoix(transcript) {
+		Println(transcript);
+		if (mots[mots.length-1] == "none") return null;
+		transcript = transcript.replace(/  +/g, ' '); // cmd = cmd.replace(/\s\s+/g, ' ');
+		transcript = transcript.trim();
+		transcript = transcript.toLowerCase();
+		var mots = transcript.split(" ");
+		if (mots.length==0) return null;
+		if (mots.length==1) return null;
+		if (mots[mots.length-1] == "none") return null;
+		if (mots[1] == "=" || mots[1]=="+" || mots[1]=="-" || mots[1]=="/" || mots[1]=="*") {
+			mots.unshift("variable");
+		}
+		return commande(mots);
+	}
+*/
+	function commandesToBlockly() {
+		effacerOutput();
+		texteToBlockly(getText());
+		effacerOutput();
+		editeurToBlockly();
+	}
+	function blocklyToCommandes (editor) {
+		blocklyToEditor(editor, "");
+		effacerOutput();
+		Println("Entrez vos commandes, puis cliquez sur le bouton Commandes...");
+		Println("Remarque : le bouton Blockly permet de retourner à Blockly sans exécuter les commandes");
+	}
+</script>
+
+  
+</body>
+</html>
