@@ -1,0 +1,35 @@
+lire n
+si n>2 et n<4 :
+	taille <-- 50 + (5*3) + 5
+	taille + 2 * 5
+	pour k entre 1 et 3 :
+		droite 120
+		repeter n :
+			avancer taille
+			gauche 360/n
+	afficher taille
+sinonsi n=10 :
+	afficher n*n
+sinon :
+	k = 1
+	tantque k<=racine(n) :
+		k <-- k+1
+	afficher(k)
+afficher "fin"
+
+
+from math import *
+a=float(input('entrer a'))
+b=2
+c=-3
+delta = (b**2)-(4*a*c)
+if (delta<0) :
+	print "pas de solution"
+elif (delta==0) :
+	x1 = -b/(2*a)
+	print(x1)
+else :
+	x1 = (-b-sqrt(delta))/(2*a)
+	print(x1)
+	x2 = (-b+sqrt(delta))/(2*a)
+	print(x2)
