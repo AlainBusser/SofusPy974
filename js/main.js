@@ -31,13 +31,6 @@ $(function() {
       return Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH = 'regrouper';
     }
   });
-  $(".divToggle").on("click", function() {
-    if ($("#pythonMode").is(":visible")) {
-      return $("#pythonMode").toggle();
-    } else {
-      return $("#blocklyMode, .blocklyToolboxDiv").toggle();
-    }
-  });
   $(".toggleMode").on("click", function() {
     var texte;
     $("#pythonMode, #blocklyMode, .blocklyToolboxDiv").toggle();

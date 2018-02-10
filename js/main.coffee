@@ -22,13 +22,6 @@ $ ->
      
       Blockly.Msg.VARIABLES_SET = 'mettre %2 dans %1'
       Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH = 'regrouper'
-   
-  
-  $( ".divToggle" ).on "click", ->
-    if $( "#pythonMode" ).is( ":visible" )
-      $( "#pythonMode" ).toggle()
-    else 
-      $( "#blocklyMode, .blocklyToolboxDiv" ).toggle()
   
   $( ".toggleMode" ).on "click", ->  
     $( "#pythonMode, #blocklyMode, .blocklyToolboxDiv" ).toggle()
