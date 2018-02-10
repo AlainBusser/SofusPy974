@@ -161,10 +161,11 @@ nav a:hover {
 }
 
 #graphique, #mycanvas, #sortieSVG { 
-  width:100%; 
+  width:640px; 
   height: 480px;
   background-image: url("img/sableblanc.jpg"); 
 }
+
 
 #sortieSVG { 
   display: none;

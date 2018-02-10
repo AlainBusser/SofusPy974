@@ -33,7 +33,7 @@ window.getCursorPos = function() {
 ouvrirClick = function() {
   var fileinput;
   fileinput = document.getElementById('fileToLoad');
-  fileinput.click();
+  return fileinput.click();
 };
 
 ouvrirFichier = function() {

@@ -6,9 +6,11 @@ window.alert = (texte) ->
   mypre = document.getElementById('output')
   mypre.innerHTML = mypre.innerHTML + txt + '\n'
   return
+
 window.getText = -> editor.getValue()
 window.setText = (texte) -> editor.setValue texte, -1
 window.insererText = (txt) ->  editor.insert txt
+
 window.getSelectedText = -> editor.session.getTextRange editor.getSelectionRange()
 window.getCursorPos = ->
   pos = editor.getCursorPosition()
@@ -17,7 +19,6 @@ window.getCursorPos = ->
 ouvrirClick = ->
   fileinput = document.getElementById('fileToLoad')
   fileinput.click()
-  return
 
 ouvrirFichier = ->
   fileToLoad = document.getElementById('fileToLoad').files[0]
