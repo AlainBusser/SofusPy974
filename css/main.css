@@ -154,88 +154,39 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
-.output {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 12pt ;
-  font-weight:normal;
-  color:blue
+#editor, #blocklyDiv {
+  height:480px;
+  width:100%; 
+  font-size:12pt
 }
 
-.message { 
-  font-family: Verdana, Arial, Helvetica, sans-serif; 
-  font-size: 12pt ;
-  font-weight:normal; 
-  color:red
-}
-
-#sortieSVG { 
-  display: none; 
-  width: 640px; 
-  height: 400px; 
-}
-
-#graphique { 
-  width: 640px; 
+#graphique, #mycanvas, #sortieSVG { 
+  width:100%; 
   height: 480px;
-  border: 3px inset gray; 
   background-image: url("img/sableblanc.jpg"); 
 }
 
-body {
- color:black;
- background-color:#ffffff; 
+#sortieSVG { 
+  display: none;
 }
 
-h1 { 
-  font-family: Arial, Helvetica, sans-serif; 
-  font-size: 20pt; font-style: normal; 
-  font-weight: normal; 
-  color: #000000; background: #FF9900; 
-  text-align: center; margin: 10pt 2.5%
+.icon {
+  height:32px;
 }
 
-h2 { 
-  font-family: Arial, Helvetica, sans-serif; 
-  font-size: 14pt; font-style: normal;
-  font-weight: bold;
-  color: #004080  
+.output, .message {
+  width : 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12pt ;
+  font-weight:normal;
 }
 
-h3 {
-  font-family: T, Helvetica, sans-serif; 
-  font-size: 12pt; 
-  font-style: normal; 
-  font-weight: bold; 
-  color: #000000; 
-  line-height: 16pt
+.output {
+  color:blue;
 }
 
-.bouton {color: black; background-color: #CC33CC;text-align: center}
-.formu {color: black; background-color: #CC33CC; text-align: center}
-
-li { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11pt }
-
-p { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11pt ;font-weight:normal}
-.command {font-family=verdana, arial; color=red	}
-.function{font-family=verdana, arial; color=blue}
-.partitle{font-family=verdana, arial; font-weight:bold}
-
-a:link {
- color:#280099;
-}
-
-a:hover {
- color:red;
- text-decoration:underline overline;
-}
-
-a:visited {
- color:#280099;
-}
-
-a:active {
- color:red;
- text-decoration:none;
+.message {
+  color:red;
 }
 
 .remarque
@@ -247,11 +198,6 @@ a:active {
 	margin-right: 50px;
 	color: 800000;
 }
-
-
-
-
-
 
 
 
@@ -332,7 +278,7 @@ a:active {
 
     .main article {
         float: left;
-        width: 57%;
+        width: 100%;
     }
 
     .main aside {

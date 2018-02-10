@@ -1,42 +1,19 @@
 # Avoid `console` errors in browsers that lack a console.
 # Place any jQuery/helper plugins in here.
 
-###
-Utilitaire pour ouvrir ou sauver des fichiers Blockly.
-
-Instructions pour créer ensuite les boutons (voir demo_fichiers.html par exemple):
-
-	<input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
-	<input type="button" value="Ouvrir" onclick="ouvrirClick();"/>
-	<button type="button" onclick="sauverFichier()">Sauver</button>
-
-Attention : ne pas inclure fichiers.js avant blockly_compressed.js
-
-###
-
+window.alert = (texte) ->
+  txt = if typeof texte != 'undefined' then texte else ''
+  mypre = document.getElementById('output')
+  mypre.innerHTML = mypre.innerHTML + txt + '\n'
+  return
 window.getText = -> editor.getValue()
-
 window.setText = (texte) -> editor.setValue texte, -1
 window.insererText = (txt) ->  editor.insert txt
+window.getSelectedText = -> editor.session.getTextRange editor.getSelectionRange()
 window.getCursorPos = ->
   pos = editor.getCursorPosition()
   editor.getSession().getDocument().positionToIndex pos, Number(0)
 
-window.getSelectedText = ->
-  editor.session.getTextRange editor.getSelectionRange()
-  #return editor.getSelection();
-  
-window.getText = -> editor.getValue()
-
-window.setText = (texte) -> editor.setValue texte, -1
-window.insererText = (txt) ->  editor.insert txt
-window.getCursorPos = ->
-  pos = editor.getCursorPosition()
-  editor.getSession().getDocument().positionToIndex pos, Number(0)
-
-window.getSelectedText = ->
-  editor.session.getTextRange editor.getSelectionRange()
-  #return editor.getSelection();
 ouvrirClick = ->
   fileinput = document.getElementById('fileToLoad')
   fileinput.click()
@@ -45,7 +22,6 @@ ouvrirClick = ->
 ouvrirFichier = ->
   fileToLoad = document.getElementById('fileToLoad').files[0]
   fileReader = new FileReader
-
   fileReader.onload = (fileLoadedEvent) ->
     textFromFileLoaded = fileLoadedEvent.target.result
     if fileToLoad.name.indexOf('.sb2') >= 0
@@ -54,8 +30,6 @@ ouvrirFichier = ->
         textFromFileLoaded = zip.file('project.json').asText()
         json = JSON.parse(textFromFileLoaded)
         effacerOutput()
-        #var editor = ace.edit("editor");
-        #blocklyToEditor(editor, textFromFileLoaded);
         Blockly.mainWorkspace.clear()
         if textFromFileLoaded.indexOf('forward:') > 0 or textFromFileLoaded.indexOf('turnLeft:') > 0 or textFromFileLoaded.indexOf('turnRight:') > 0
           block = creerBloc('reset')
@@ -117,48 +91,19 @@ sauverFichier = ->
   downloadLink.click()
   return
 
-# fond du menu : ici jaune
-# menu principal
-#modifierCss('.blocklyTreeLabel {', 'font-size:', 'font-size: 25pt;');	// taille de la police : ici 25
-#modifierCss('.blocklyTreeRow {', 'height:', 'height: 28pt;');	// taille du rectangle englobant (un peu supérieure à celle de la police) : ici 28
-# ------------------------- ne pas modifier en principe ---------------------------------------
-# fonction modifiant le tableau de style Blockly.Css.CONTENT 
-# --------------------------------------------------------------------------------------------
-
-modifierCss = (style, attribut, valeur) ->
-  content = Blockly.Css.CONTENT
-  pos = content.indexOf(style)
-  if pos < 0
-    return
-  k = pos
-  while k < content.length
-    if content[k].indexOf(attribut) == 0
-      content[k] = valeur
-      return
-    if content[k] == '}'
-      content.splice k, 0, valeur
-      return
-    k++
-  return
-
 ###
 Utilitaire pour grossir les entrées-sorties :
 	- les affichages sont redirigés vers la balise "output"
 	- la question posée dans une boite de saisie standard est redirigée vers la balise "output"
-
 Cet utilitaire permet également de gérer le pliage et le dépliage de Blockly
-
 Instructions (adaptables) pour créer ensuite les balises (voir demo_affichage.html par exemple) :
-
 	<pre id="message" class="message"></pre>
 	<pre id="output"  class="output"></pre>
 	<style>
 		.output { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 20pt ;font-weight:normal; color:blue}
 		.message { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 20pt ;font-weight:normal; color:red}
 	</style>
-
 Attention : ...
-
 ###
 
 Print = (texte) ->
@@ -201,19 +146,11 @@ window.prompt= function(msg) {
 }
 ###
 
-plierDeplier = ( $obj ) -> 
-  $obj.toggle()
-  $( ".blocklyToolboxDiv" ).toggle()
-  
-
 ###
 Utilitaire pour gérer un éditeur Python :
 	- reprend editeur.js en prenant en compte des zones de dessin pour les tortues si elles existent
 	- gère l'exécution d'un programme Python avec Skulpt
 ###
-
-plierDeplierEditeur = -> $('editor').toggle()
-  
 tabuler = (code) ->
   tabus = ''
   k = 1
@@ -222,8 +159,6 @@ tabuler = (code) ->
     tabus += '\u0009'
     k++
   code
-
-
 
 # ---------------------------------------------------------------------------
 # Exécution de programmes Python
@@ -288,15 +223,10 @@ tabuler = (code) ->
 
 ###
 Utilitaire pour ouvrir ou sauver des fichiers textes avec l'éditeur.
-
 Instructions pour créer ensuite les boutons (voir demo_fichiers.html par exemple):
-
 	<input type="file" id="fileToLoadEdit" style="display: none" onchange="ouvrirFichierEdit(editor);" />
 	<input type="button" value="Ouvrir" onclick="ouvrirClickEdit();"/>
 	<button type="button" onclick="sauverFichierEdit(editor)">Sauver</button>
-
-Attention : ne pas inclure fichiers_editeur.js avant editeurs.js
-
 ###
 
 ouvrirClickEdit = ->
@@ -354,12 +284,32 @@ Fichier permettant de changer les styles par défaut de Blockly, en particulier 
 	- taille et couleur des menus contextuels
 
 Cet utilitaire évite de modifier directement le fichier css.js des sources de Blockly.
+###
+
+# modifierCss('.blocklyTreeLabel {', 'font-size:', 'font-size: 25pt;');	
+# taille de la police : ici 25
+# modifierCss('.blocklyTreeRow {', 'height:', 'height: 28pt;');	
+# taille du rectangle englobant (un peu supérieure à celle de la police) : ici 28
+# fonction modifiant le tableau de style Blockly.Css.CONTENT  #---------------------------------------------------------------------------------------
+
+modifierCss = (style, attribut, valeur) ->
+  content = Blockly.Css.CONTENT
+  pos = content.indexOf(style)
+  if pos < 0
+    return
+  k = pos
+  while k < content.length
+    if content[k].indexOf(attribut) == 0
+      content[k] = valeur
+      return
+    if content[k] == '}'
+      content.splice k, 0, valeur
+      return
+    k++
+  return
 
 ###
 
-# -------------------------------------- configuration ---------------------------------------
-# pas besoin d'être informaticien pour changer les tailles ... 
-# --------------------------------------------------------------------------------------------
 # bulle d'aide
 modifierCss '.blocklyTooltipDiv {', 'font-size:', 'font-size: 15pt;'
 # taille de la police : ici 25
@@ -370,16 +320,7 @@ modifierCss '.blocklyWidgetDiv .goog-menuitem-content {', 'background:', 'backgr
 # fond de chaque commande : ici vert
 modifierCss '.blocklyWidgetDiv .goog-menuitem {', 'background:', 'background: #ff0;'
 
-window.alert = (texte) ->
-  txt = if typeof texte != 'undefined' then texte else ''
-  mypre = document.getElementById('output')
-  mypre.innerHTML = mypre.innerHTML + txt + '\n'
-  return
-
-# ---
-# generated by js2coffee 2.2.0
-
-
+###
 
 runBlockly = ->
   effacerOutput()
@@ -428,18 +369,4 @@ getPythonText = ->
 	}
 ###
 
-commandesToBlockly = ->
-  effacerOutput()
-  texteToBlockly getText()
-  effacerOutput()
-  editeurToBlockly()
-  return
 
-blocklyToCommandes = (editor) ->
-  blocklyToEditor editor, ''
-  effacerOutput()
-  Println 'Entrez vos commandes, puis cliquez sur le bouton Commandes...'
-  Println 'Remarque : le bouton Blockly permet de retourner à Blockly sans exécuter les commandes'
-  return
-  
-  
