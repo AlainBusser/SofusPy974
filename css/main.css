@@ -160,12 +160,15 @@ nav a:hover {
   font-size:12pt
 }
 
-#graphique, #mycanvas, #sortieSVG { 
-  width:640px; 
-  height: 480px;
+#graphique, #sortieSVG { 
+  height:480px;
+  width:100%;
   background-image: url("img/sableblanc.jpg"); 
 }
 
+#mycanvas {
+  background-image: url("img/sableblanc.jpg"); 
+}
 
 #sortieSVG { 
   display: none;
@@ -176,14 +179,16 @@ nav a:hover {
 }
 
 .output, .message {
-  width : 100%;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 12pt ;
-  font-weight:normal;
+  margin : 0 auto;
+  width : 640px;
+  background-color: black;
+  color: #55ff55;
+  font-family: monospace;
+  padding : 5px;
 }
 
 .output {
-  color:blue;
+  
 }
 
 .message {
