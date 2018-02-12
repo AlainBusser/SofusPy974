@@ -10,7 +10,7 @@ editor.getSession().setUseSoftTabs(false);
 editor.getSession().setMode('ace/mode/python');
 
 $(function() {
-  var divsBlockly, divsEditor, loadSample;
+  var divsBlockly, divsPython, loadSample;
   $.ajax({
     type: "GET",
     url: "xml/exo1-toolbox.xml",
@@ -32,20 +32,17 @@ $(function() {
       return Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH = 'regrouper';
     }
   });
-  divsEditor = "#pythonMode,  #boutons_editor";
+  divsPython = "#pythonMode,  #boutons_editor";
   divsBlockly = "#blocklyMode, #boutons_blockly, .blocklyToolboxDiv";
   $(".toggleMode").on("click", function() {
     var texte;
-    $(divsEditor).toggle();
+    $(divsPython).toggle();
     $(divsBlockly).toggle();
     if ($("#pythonMode").is(":visible")) {
       texte = getPythonText();
       editor.setValue(tabuler(texte), -1);
       return editor.focus();
     }
-  });
-  $("#executer").on("click", function() {
-    return runPython(editor);
   });
   $("#runBlocks").on("click", function() {
     return runBlockly();
@@ -59,6 +56,9 @@ $(function() {
   $("#fileToLoad").on("change", function() {
     return ouvrirFichier();
   });
+  $("#executer").on("click", function() {
+    return runPython(editor);
+  });
   $("#sauverFichierEdit").on("click", function() {
     return sauverFichierEdit(editor);
   });
@@ -69,7 +69,7 @@ $(function() {
     return ouvrirFichierEdit();
   });
   loadSample = function(name) {
-    $(divsEditor).hide();
+    $(divsPython).hide();
     $(divsBlockly).show();
     workspace.clear();
     return $.ajax({
@@ -93,6 +93,6 @@ $(function() {
   $("#d3").on("click", function() {
     return loadSample("seuil3");
   });
-  Println('1) Il y a quelques exemples Blockly à tester...');
-  return Println('2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...');
+  Println('> 1) Il y a quelques exemples Blockly à tester...');
+  return Println('> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...');
 });

@@ -68,7 +68,7 @@ ouvrirFichier = ->
 sauverFichier = ->
   textToWrite = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace))
   textFileAsBlob = new Blob([ textToWrite ], type: 'text/plain')
-  fileNameToSaveAs = prompt('nom du fichier (sauvé dans le dossier de téléchargements) ?', 'fichier.bly')
+  fileNameToSaveAs = prompt('Nom du fichier (sauvé dans le dossier de téléchargements) ?', 'fichier.bly')
   if fileNameToSaveAs == null
     return
   downloadLink = document.createElement('a')

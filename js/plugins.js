@@ -96,7 +96,7 @@ sauverFichier = function() {
   textFileAsBlob = new Blob([textToWrite], {
     type: 'text/plain'
   });
-  fileNameToSaveAs = prompt('nom du fichier (sauvé dans le dossier de téléchargements) ?', 'fichier.bly');
+  fileNameToSaveAs = prompt('Nom du fichier (sauvé dans le dossier de téléchargements) ?', 'fichier.bly');
   if (fileNameToSaveAs === null) {
     return;
   }
