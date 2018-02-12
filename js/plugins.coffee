@@ -349,8 +349,8 @@ getPythonText = ->
       code = 'from turtle import * \n\n' + 'tortues={}  # pour stocker toutes les tortues (sauf celle par défaut)\n\n' + code + '\nhideturtle()  # pour masquer la tortue par défaut'
     # code = "# code Python cree par Blockly \n\n" + code;
   catch e
-    code = '# Blockly n\'a pu etre traduit en Python'
-  code
+    code = "# Blockly n\'a pu etre traduit en Python"
+  code = code.replace(/\n*.*= None\n/g, '')
 
 ###
 	function interpreterVoix(transcript) {

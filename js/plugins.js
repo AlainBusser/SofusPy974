@@ -405,9 +405,9 @@ getPythonText = function() {
     }
   } catch (error) {
     e = error;
-    code = '# Blockly n\'a pu etre traduit en Python';
+    code = "# Blockly n\'a pu etre traduit en Python";
   }
-  return code;
+  return code = code.replace(/\n*.*= None\n/g, '');
 };
 
 
