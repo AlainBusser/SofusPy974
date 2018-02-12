@@ -1,0 +1,77 @@
+<xml id="seuil3" xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defreturn" id="NR2[)mAE%gb~n]3ghV!{" x="-841" y="-324">
+    <mutation>
+      <arg name="credit"></arg>
+      <arg name="annee"></arg>
+    </mutation>
+    <field name="NAME">interet</field>
+    <statement name="STACK">
+      <block type="controls_for" id="78;2]D~E_EucIB]{:4B8">
+        <field name="VAR">i</field>
+        <value name="FROM">
+          <block type="math_number" id="?F0xxW?BTuF5T/H-x2Pd">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="variables_get" id="iQ]sL}3s~t0JZ:1kMNSU">
+            <field name="VAR">annee</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number" id="H#2yGqWcI^b|~`n2e/@r">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="variables_set" id="8-`}F2_Kasa.8B~2?R:}">
+            <field name="VAR">credit</field>
+            <value name="VALUE">
+              <block type="math_arithmetic" id="gCO~QJtIqv:kg:7b2^pv">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <shadow type="math_number" id="@u:aa%=h;l?-|H,[;=Pk">
+                    <field name="NUM">1</field>
+                  </shadow>
+                  <block type="variables_get" id="dEshKi{c?/;cU`By~=fZ">
+                    <field name="VAR">credit</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number" id="WqzrX(-dLEAX)jx8KQlV">
+                    <field name="NUM">1.02</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get" id="]T}MeQ.(|`gegZvf4{NK">
+        <field name="VAR">credit</field>
+      </block>
+    </value>
+  </block>
+  <block type="text_print" id="oax[,5FtV3Mu.e1/ZiNZ" x="-841" y="-162">
+    <value name="TEXT">
+      <block type="procedures_callreturn" id="1_gjvhy/IgS}0Uy8.3T~">
+        <mutation name="interet">
+          <arg name="credit"></arg>
+          <arg name="annee"></arg>
+        </mutation>
+        <value name="ARG0">
+          <block type="math_number" id="-9m!eQMeH~~z!v}kw2qd">
+            <field name="NUM">1500</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="math_number" id="UZa*9zxQIz^R58UUQA.C">
+            <field name="NUM">6</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>

@@ -6,11 +6,11 @@ editor.getSession().setMode 'ace/mode/python'
 $ ->
   $.ajax
     type: "GET"
-    url: "js/vendor/blockly/keys/toolbox.xml"
+    url: "xml/index-toolbox.xml"
     dataType: "xml"
     success: (xml) ->
       workspace = Blockly.inject 'blocklyDiv',
-        media: "js/vendor/blockly/keys/media/"
+        media: "js/vendor/blockly/media/"
         zoom:
           controls: true
           wheel: true

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<xml id="toolbox" style="display: none">
+  <category name="Variables" custom="VARIABLE"/>
+  <category name="Entrees-Sorties">
+    <block type="text_print">
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">blabla</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_print">
+      <value name="TEXT">
+        <block type="variables_get">
+				</block>
+      </value>
+    </block>
+    <block type="text_prompt">
+      <field name="TYPE">NUMBER</field>
+    </block>
+    <block type="scratch_demander">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT"/>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="Math">
+    <category name="constantes">
+      <block type="math_number"/>
+      <block type="math_constant"/>
+    </category>
+    <category name="op&#xE9;rations">
+      <block type="math_arithmetic">
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_modulo"/>
+      <block type="math_quotient"/>
+    </category>
+    <category name="fonctions">
+      <block type="math_single">
+        <field name="OP">ROOT</field>
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_trig">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">45</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_number_property"/>
+      <block type="math_round"/>
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_on_list"/>
+    </category>
+    
+  </category>
+  <category name="Textes">
+    <block type="text"/>
+    <block type="text_join"/>
+    <block type="text_length"/>
+    <block type="text_charAt"/>
+    <block type="text_getSubstring"/>
+    <block type="text_changeCase"/>
+  </category>
+  <category name="Conditionnelles">
+    <block type="controls_if"/>
+    <block type="controls_if">
+      <mutation else="1"/>
+    </block>
+    <block type="logic_compare"/>
+    <block type="logic_operation"/>
+    <block type="logic_boolean"/>
+    <block type="controls_if">
+      <mutation elseif="1" else="1"/>
+    </block>
+  </category>
+  <category name="Boucles">
+    <block type="controls_for">
+      <field name="VAR">k</field>
+      <value name="FROM">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+      <value name="TO">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+      <value name="BY">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="controls_whileUntil"/>
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+    </block>
+    <block type="controls_forEach">
+      <field name="VAR">valeur</field>
+    </block>
+  </category>
+  <category name="Sous-programmes" custom="PROCEDURE"/>
+  <category name="Listes">
+    <block type="lists_create_with"/>
+    <block type="lists_create_empty"/>
+    <block type="lists_length"/>
+    <block type="lists_getIndex"/>
+    <block type="vectors_getIndex"/>
+    <block type="lists_setIndex"/>
+    <block type="vectors_setIndex"/>
+    <block type="vectors_append"/>
+  </category>
+  
+</xml>
