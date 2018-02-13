@@ -1,0 +1,95 @@
+<xml id="seuil0" xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id="L~|Gp7P?C~i.YiVPJ*G." x="-626" y="-300">
+    <field name="VAR">u</field>
+    <value name="VALUE">
+      <block type="math_number" id="-9m!eQMeH~~z!v}kw2qd">
+        <field name="NUM">600</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="+#U[EP(Y%y83xg},09!C">
+        <field name="VAR">n</field>
+        <value name="VALUE">
+          <block type="math_number" id="UZa*9zxQIz^R58UUQA.C">
+            <field name="NUM">2012</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_whileUntil" id=".9/O0Yey^iVZVr;tlmhY">
+            <field name="MODE">WHILE</field>
+            <value name="BOOL">
+              <block type="logic_compare" id="Hd2}Q=PdqrE5q+OcTYAR">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="a4SR=Q_]%LsNlNY;q]k,">
+                    <field name="VAR">u</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="*|cFQRwHrETD}sQ^@d^c">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set" id="f?w|tax@:G8J_LYM39#%">
+                <field name="VAR">n</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id=";PJ,amZPy#}hiHi%aIf0">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <shadow type="math_number" id="cCamh~*,!h|f};u@*(6e">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="variables_get" id="5VNXE.j=%EHqZf)-0%n5">
+                        <field name="VAR">n</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="math_number" id=":@SvoZ?:ux!Y#rL,WXNt">
+                        <field name="NUM">1</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="8-`}F2_Kasa.8B~2?R:}">
+                    <field name="VAR">u</field>
+                    <value name="VALUE">
+                      <block type="math_arithmetic" id="gCO~QJtIqv:kg:7b2^pv">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <shadow type="math_number" id="@u:aa%=h;l?-|H,[;=Pk">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get" id="dEshKi{c?/;cU`By~=fZ">
+                            <field name="VAR">u</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number" id="WqzrX(-dLEAX)jx8KQlV">
+                            <field name="NUM">76</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="text_print" id="oax[,5FtV3Mu.e1/ZiNZ">
+                <value name="TEXT">
+                  <block type="variables_get" id="J2ed~1%7+Jty-?Q{H8z{">
+                    <field name="VAR">n</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

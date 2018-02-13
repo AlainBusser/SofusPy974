@@ -1,0 +1,61 @@
+<xml id="demo1">
+  <block type="reset" id="aMMZ6cNCnVA#O~=!%[;u" x="0" y="0">
+    <next>
+      <block type="variables_set" id="}OY[g%,EEcm%hZO#Yko[">
+        <field name="VAR">taille</field>
+        <value name="VALUE">
+          <block type="math_number" id="?K0TKAA+T8C7:~ZV8_1?">
+            <field name="NUM">50</field>
+          </block>
+        </value>
+        <next>
+          <block type="scratch_demander" id="ZxGMy5./[#cSka#YcEh5">
+            <field name="VAR">reponse</field>
+            <value name="TEXT">
+              <block type="text" id="R|`?/O@Mbsnv1JZ^p/[2">
+                <field name="TEXT">nombre de repetitions</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext" id="[Yx!sr52e0nAhTJERU)*">
+                <value name="TIMES">
+                  <block type="variables_get" id=":[FkleMkP*.gymxp%bf2">
+                    <field name="VAR">reponse</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="var_gauche" id="oKo3d#;06h}!(E(`-w73">
+                    <value name="ANGLE">
+                      <block type="math_number" id="RSV76}?M/Z9S:GY`LwQA">
+                        <field name="NUM">90</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="avancer" id="Dj?dWDC!-tG}QFVp4Cc7">
+                        <value name="NAME">
+                          <block type="variables_get" id="DW3P:eNmn[ZLHqS~Rx:Q">
+                            <field name="VAR">taille</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sophus_augmenter" id="DnVvY4l])Zprjbp^Wn}_">
+                            <field name="VAR">taille</field>
+                            <value name="DELTA">
+                              <block type="math_number" id="S|s?LHBli`=}Fhb[0sUZ">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

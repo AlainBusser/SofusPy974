@@ -49,8 +49,8 @@ function sb2_commande(mots) {
 //////////////////////////////////////////////////////
 
 function creerBloc(prototypeName) {
-	var block = Blockly.Block.obtain(Blockly.getMainWorkspace(), prototypeName);
-	//var block = workspace.newBlock(prototypeName);
+	//var block = Blockly.Block.obtain(Blockly.getMainWorkspace(), prototypeName);
+	var block = workspace.newBlock(prototypeName);
 	block.initSvg();
 	block.render();
 	return block;
