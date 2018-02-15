@@ -182,17 +182,24 @@ nav a:hover {
   height:32px;
 }
 
-.output, .message {
+#titlebar, .output, .message {
   margin : 0 auto;
-  width : 640px;
+  width : 100%;
   background-color: black;
   color: #55ff55;
   font-family: monospace;
   padding : 5px;
 }
 
+#titlebar {
+  font-weight : bolder;
+  color: orange;
+  border-bottom : solid grey 1px; 
+  border-radius : 10px 10px 0px 0px;
+}
+
 .output {
-  height: 100px;
+  height : 100px;
 }
 
 .message {
@@ -208,8 +215,6 @@ nav a:hover {
 	margin-right: 50px;
 	color: 800000;
 }
-
-
 
 
 
