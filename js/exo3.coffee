@@ -3,10 +3,23 @@ editor = ace.edit("editor")
 editor.getSession().setUseSoftTabs false
 editor.getSession().setMode 'ace/mode/python'
 
+exo1 = 
+  titre  : "Boucle While"
+  enonce : "Jean a mis en banque en 2012 un capital de 600 euros. Chaque année, il rajoute 76 euros sur ce compte. En quelle année dépassera-t-il les 1000€ ?"
+exo2 = 
+  titre  : "Boucle While (avec appel de fonction)"
+  enonce : "Jean a mis en banque en 2012 un capital de 600 euros. Chaque année, il rajoute 76 euros sur ce compte. En quelle année dépassera-t-il les 1000€ ?"
+exo3 = 
+  titre  : "Boucle For"
+  enonce : "Jeanne a mis en banque en début d’année un capital de 1500 euros. Chaque année, son capital est multiplié par 1,02. Dans 6 ans, de quelle somme disposera-t-il ?"
+exo4 = 
+  titre  : "Boucle For (avec appel de fonction)"
+  enonce : "Jeanne a mis en banque en début d’année un capital de 1500 euros. Chaque année, son capital est multiplié par 1,02. Dans 6 ans, de quelle somme disposera-t-il ?"
+
 $ ->
   $.ajax
     type: "GET"
-    url: "xml/exo1-toolbox.xml"
+    url: "xml/exo3-toolbox.xml"
     dataType: "xml"
     success: (xml) ->
       workspace = Blockly.inject 'blocklyDiv',
@@ -19,7 +32,6 @@ $ ->
           minScale: 0.5
           scaleSpeed: 1.2
         toolbox: $(xml).find("#toolbox")[0]
-     
       Blockly.Msg.VARIABLES_SET = 'mettre %2 dans %1'
       Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH = 'regrouper'
   
@@ -48,9 +60,13 @@ $ ->
   $( "#fileToLoadEdit"    ).on "change", -> ouvrirFichierEdit()
   
   # Charger un fichier blockly depuis le repertoire xml/name.xml
-  loadSample = (name) ->
+  loadSample = (name, exo) ->
     $( divsPython ).hide()
     $( divsBlockly).show()
+    $( "#enonce h2" ).html exo.titre
+    $( "#enonce p" ).html exo.enonce
+
+    $( "#enonce").show()
     workspace.clear()
     $.ajax
       type: "GET"
@@ -59,10 +75,10 @@ $ ->
       success: (xml) -> 
         Blockly.Xml.domToWorkspace $(xml).find("##{name}")[0], workspace
     
-  $( "#d0" ).on "click", -> loadSample( "seuil0" )
-  $( "#d1" ).on "click", -> loadSample( "seuil1" )
-  $( "#d2" ).on "click", -> loadSample( "seuil2" )
-  $( "#d3" ).on "click", -> loadSample( "seuil3" )
+  $( "#d0" ).on "click", -> loadSample( "seuil0", exo1 )
+  $( "#d1" ).on "click", -> loadSample( "seuil1", exo2 )
+  $( "#d2" ).on "click", -> loadSample( "seuil2", exo3 )
+  $( "#d3" ).on "click", -> loadSample( "seuil3", exo4 )
   
   # Afficher un message dans output
   Println '> 1) Il y a quelques exemples Blockly à tester...'
