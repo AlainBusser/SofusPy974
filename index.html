@@ -6,8 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Blockly : l'extension SofusPy</title>
-        <meta name="description" content="">
+        <title>SofusPy 974</title>
+        <meta name="description" content="Outil pour le stage Python 2018">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -50,9 +50,9 @@
                 <h1 class="title">SofusPy974</h1>
                 <nav>
                     <ul>
-                        <li><a href="exo1.html">exo1</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
+                        <li><a href="exo1.html">Affectation</a></li>
+                        <li><a href="#">Pourcentages</a></li>
+                        <li><a href="#">Boucles</a></li>
                     </ul>
                 </nav>
             </header>
@@ -62,12 +62,20 @@
             <div class="main wrapper clearfix">
                 <article>
                     <header>
-                        <h1>article header h1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
+                        <h1>SofusPy (de Sofus/Blockly vers Python)</h1>
                     </header>
                     <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+                        <h2>Modes</h2>
+                        <p>Cet outil comprend deux modes :
+                        <ul>
+                            <li>En mode Blockly, on place des blocs pour construire un programme (comme avec Scratch)</li>
+                            <li>En mode Python, on écrit un programme Python</li>
+                        </ul>
+                        Chaque fois qu'on clique sur le bouton "éditeur", on passe d'un mode à l'autre.
+                        </p>
+                        <h3>Attention: Le passage de Python à Blockly efface le code Python</h3>
+<pre id="message"   class="message"></pre>
+<pre id="output"    class="output" ></pre>
   
      
 <div id="blocklyMode" >   
@@ -84,8 +92,8 @@
 	    <button class="toggleMode">
 	        <img src="img/python.png" class="icon"> Editeur</button>
 	    <button id="blocklyToCommandes">
-	            <img src="img/terminal.png" class="icon"> Commandes</button><br>
-      <button id="d1"><img src="img/gear.png" class="icon"> Demo 1</button>
+	            <img src="img/memo.png" class="icon"> Commandes</button><br>
+      <button id="d1"><img src="img/crystal-ball.png" class="icon"> Demo 1</button>
     </div>
     
     <div id="graphique">
@@ -112,24 +120,22 @@
 	    <button class="toggleMode">
 	        <img src="img/blockly.png" class="icon"> Retour</button>
 	    <button id="commandes">
-	      <img src="img/terminal.png" class="icon"> Commandes</button>
+	      <img src="img/memo.png" class="icon"> Commandes</button>
     </div>
     <canvas id="mycanvas" height="480px" width="800px"></canvas> 
 </div>
 
-<pre id="message"   class="message"></pre>
-<pre id="output"    class="output" ></pre>
 
                     </section>
                     <footer>
-                        <h3>article footer h3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
+                        <h3>©BuzzerToby 2016-2018</h3>
+                        <p>Fichier préparé pour le stage académique Python de mars 2018</p>
                     </footer>
                 </article>
 
                 <aside style="display:none">
                     <h3>aside</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+                    <p>De Blockly à Python et vice-versa</p>
                 </aside>
 
             </div> <!-- #main -->
@@ -137,7 +143,7 @@
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>footer</h3>
+                <h3>D'après Patrick Raffinat (IUT de Pau)</h3>
             </footer>
         </div>
 
