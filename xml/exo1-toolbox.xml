@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <xml id="toolbox" style="display: none">
   <category name="Variables" custom="VARIABLE"/>
-  
   <category name="Entrees-Sorties">
     <block type="text_print">
       <value name="TEXT">
@@ -19,67 +18,170 @@
     <block type="text_prompt">
       <field name="TYPE">NUMBER</field>
     </block>
+    <block type="scratch_demander">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT"/>
+        </block>
+      </value>
+    </block>
   </category>
-  
   <category name="Math">
-
-    <block type="math_number"/>
-    <block type="math_constant"/>
-    <block type="math_arithmetic">
-      <value name="A">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-      <value name="B">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_single">
-      <field name="OP">ROOT</field>
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-    </block>    
-    <block type="math_trig">
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">45</field>
-        </shadow>
-      </value>
-    </block>   
-    <block type="math_number_property"/>    
-    <block type="math_round"/>    
-    <block type="math_random_int">
-      <value name="FROM">
-        <block type="math_number">
-          <field name="NUM">1</field>
+    <category name="constantes">
+      <block type="math_number"/>
+      <block type="math_constant"/>
+    </category>
+    <category name="op&#xE9;rations">
+      <block type="math_arithmetic">
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_modulo"/>
+      <block type="math_quotient"/>
+    </category>
+    <category name="fonctions">
+      <block type="math_single">
+        <field name="OP">ROOT</field>
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_trig">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">45</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_number_property"/>
+      <block type="math_round"/>
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_on_list"/>
+    </category>
+    <category name="transformations (sofus)">
+      <category name="transformations">
+        <block type="sophus_augmenter">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
         </block>
-      </value>
-      <value name="TO">
-        <block type="math_number">
-          <field name="NUM">100</field>
+        <block type="sophus_diminuer">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
         </block>
-      </value>
-    </block>
+        <block type="sophus_multiplier">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+        <block type="sophus_diviser">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+      </category>
+      <category name="pourcentages">
+        <block type="sophus_multiplier_fract">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+        <block type="sophus_diviser_fract">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">3</field>
+            </block>
+          </value>
+        </block>
+        <block type="sophus_augmenter_fract">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+        <block type="sophus_diminuer_fract">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+      </category>
+      <category name="fonctions">
+        <block type="sophus_inverser"/>
+        <block type="sophus_doubler"/>
+        <block type="sophus_carre"/>
+        <block type="sophus_puissance">
+          <value name="POW">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+      </category>
+      <category name="arrondis">
+        <block type="sophus_arrondir">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+        <block type="sophus_tronquer">
+          <value name="DELTA">
+            <block type="math_number">
+              <field name="NUM">2</field>
+            </block>
+          </value>
+        </block>
+      </category>
+    </category>
   </category>
-  
-  <category name="Textes">
-    <block type="text"/>
-    <block type="text_join"/>
-  </category>
-  
   <category name="Conditionnelles">
     <block type="controls_if"/>
+    <block type="controls_if">
+      <mutation else="1"/>
+    </block>
     <block type="logic_compare"/>
     <block type="logic_operation"/>
-    <block type="logic_boolean"/>  
+    <block type="logic_boolean"/>
+    <block type="controls_if">
+      <mutation elseif="1" else="1"/>
+    </block>
   </category>
-  
   <category name="Boucles">
     <block type="controls_for">
       <field name="VAR">k</field>
@@ -99,9 +201,7 @@
         </block>
       </value>
     </block>
-    
     <block type="controls_whileUntil"/>
-    
     <block type="controls_repeat_ext">
       <value name="TIMES">
         <block type="math_number">
@@ -109,8 +209,9 @@
         </block>
       </value>
     </block>
-
+    <block type="controls_forEach">
+      <field name="VAR">valeur</field>
+    </block>
   </category>
-  
-  <category name="Sous-programmes" custom="PROCEDURE"/>  
+  <category name="Sous-programmes" custom="PROCEDURE"/>
 </xml>

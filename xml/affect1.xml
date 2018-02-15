@@ -1,0 +1,11 @@
+<xml id="a1" xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id=")a+[24(11:rB:0@oqfPG" x="45" y="68">
+    <field name="VAR">prix</field>
+    <comment pinned="true" h="80" w="160">On remarque qu'il n'est pas possible de créer une variable autrement qu'en lui donnant une valeur initiale</comment>
+    <value name="VALUE">
+      <block type="math_number" id="L+g}/XHxW+{XvT+ZN[gL">
+        <field name="NUM">80</field>
+      </block>
+    </value>
+  </block>
+</xml>

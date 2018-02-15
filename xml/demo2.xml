@@ -1,0 +1,84 @@
+<xml id="demo2">
+  <block type="variables_set" id="`~|rH_zrzw40*kAq()|T" x="20" y="26">
+    <field name="VAR">terme</field>
+    <value name="VALUE">
+      <block type="math_number" id="o,:Jld[YP@ii)G2JnF|:">
+        <field name="NUM">13</field>
+      </block>
+    </value>
+    <next>
+      <block type="controls_whileUntil" id="6FE87{4%U%IVM7P:rWO[">
+        <field name="MODE">UNTIL</field>
+        <value name="BOOL">
+          <block type="logic_compare" id="#^mZ:^IsV?nE}+VaI.^#">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="HU@K%(U1}.I[q7U,n22x">
+                <field name="VAR">terme</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="`E[?[*DFrvFaYAl-[-xr">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="controls_if" id="M}Wrq)|8c9N?r1Cj@paH">
+            <value name="IF0">
+              <block type="math_number_property" id="~0hz-v1_v(^~[n%z=pzs">
+                <mutation divisor_input="false"></mutation>
+                <field name="PROPERTY">ODD</field>
+                <value name="NUMBER_TO_CHECK">
+                  <block type="variables_get" id="9B}B70W-,O%k;0tv~r/p">
+                    <field name="VAR">terme</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="sophus_multiplier" id="NPb547V%_;UYt2xlVb+C">
+                <field name="VAR">terme</field>
+                <value name="DELTA">
+                  <block type="math_number" id="%vTV`~h6XnVE,KZdbQ*%">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="sophus_augmenter" id="|7e%ibD8IlvSeT}uC/E5">
+                    <field name="VAR">terme</field>
+                    <value name="DELTA">
+                      <block type="math_number" id="YCHVKG|;8RTl3YsB!nTk">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="sophus_diviser" id="9|,fx-YNS^mIwyX-8C}v">
+                <field name="VAR">terme</field>
+                <value name="DELTA">
+                  <block type="math_number" id=";,Ih[y+0D0shLOZo6,:1">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="text_print" id="n,f--s%#D-7[S1Cm)C5{">
+                    <value name="TEXT">
+                      <block type="variables_get" id="y^|@-_tyLC%RSN8km#Qq">
+                        <field name="VAR">terme</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

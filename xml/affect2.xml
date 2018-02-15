@@ -1,0 +1,19 @@
+<xml id="affect2" xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id=")a+[24(11:rB:0@oqfPG" x="45" y="68">
+    <field name="VAR">prix</field>
+    <value name="VALUE">
+      <block type="math_number" id="L+g}/XHxW+{XvT+ZN[gL">
+        <field name="NUM">80</field>
+      </block>
+    </value>
+    <next>
+      <block type="text_print" id="|BnPLpJW]xv5H%fHw_rQ">
+        <value name="TEXT">
+          <block type="variables_get" id="Hzpv9{aIn,}Y!bz_!=vD">
+            <field name="VAR">prix</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+</xml>

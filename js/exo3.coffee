@@ -59,11 +59,13 @@ $ ->
       success: (xml) -> 
         Blockly.Xml.domToWorkspace $(xml).find("##{name}")[0], workspace
     
-  $( "#a1" ).on "click", -> loadSample( "affect1" )
-  $( "#a2" ).on "click", -> loadSample( "affect2" )
+  $( "#d0" ).on "click", -> loadSample( "seuil0" )
+  $( "#d1" ).on "click", -> loadSample( "seuil1" )
+  $( "#d2" ).on "click", -> loadSample( "seuil2" )
+  $( "#d3" ).on "click", -> loadSample( "seuil3" )
   
   # Afficher un message dans output
-  Println 'Ceci est la console de sortie'
-  Println 'Les affichages "print" se feront ici'
+  Println '> 1) Il y a quelques exemples Blockly à tester...'
+  Println '> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...'
   
   

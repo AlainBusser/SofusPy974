@@ -81,12 +81,18 @@ $(function() {
       }
     });
   };
-  $("#a1").on("click", function() {
-    return loadSample("affect1");
+  $("#d0").on("click", function() {
+    return loadSample("seuil0");
   });
-  $("#a2").on("click", function() {
-    return loadSample("affect2");
+  $("#d1").on("click", function() {
+    return loadSample("seuil1");
   });
-  Println('Ceci est la console de sortie');
-  return Println('Les affichages "print" se feront ici');
+  $("#d2").on("click", function() {
+    return loadSample("seuil2");
+  });
+  $("#d3").on("click", function() {
+    return loadSample("seuil3");
+  });
+  Println('> 1) Il y a quelques exemples Blockly à tester...');
+  return Println('> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...');
 });
