@@ -65,7 +65,3 @@ python2algo = function(source) {
   algo = algo.replace(/any\((\w+)\)/g, "∃x, $1(x)");
   return algo;
 };
-
-$("#py2algo").on('click', function() {
-  return $("#pydest").val(python2algo($("#pysrc").val()));
-});

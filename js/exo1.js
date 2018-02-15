@@ -68,6 +68,9 @@ $(function() {
   $("#fileToLoadEdit").on("change", function() {
     return ouvrirFichierEdit();
   });
+  $("#py2algo").on("click", function() {
+    return afficherPseudocode();
+  });
   loadSample = function(name) {
     $(divsPython).hide();
     $(divsBlockly).show();
@@ -82,10 +85,10 @@ $(function() {
     });
   };
   $("#a1").on("click", function() {
-    return loadSample("affect2");
+    return loadSample("affect1");
   });
   $("#a2").on("click", function() {
-    return loadSample("affect1");
+    return loadSample("affect2");
   });
   Println('Ceci est la console de sortie');
   return Println('Les affichages "print" se feront ici');
