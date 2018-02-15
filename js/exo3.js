@@ -54,15 +54,18 @@ $(function() {
   });
   divsPython = "#pythonMode,  #boutons_editor";
   divsBlockly = "#blocklyMode, #boutons_blockly, .blocklyToolboxDiv";
-  $(".toggleMode").on("click", function() {
+  $(".toggleModetoB").on("click", function() {
+    $(divsPython).hide();
+    $(divsBlockly).toshow();
+    return $("#pythonTutor").hide().attr("src", "");
+  });
+  $(".toggleModetoE").on("click", function() {
     var texte;
-    $(divsPython).toggle();
-    $(divsBlockly).toggle();
-    if ($("#pythonMode").is(":visible")) {
-      texte = getPythonText();
-      editor.setValue(tabuler(texte), -1);
-      return editor.focus();
-    }
+    $(divsPython).show();
+    $(divsBlockly).hide();
+    texte = getPythonText();
+    editor.setValue(tabuler(texte), -1);
+    return editor.focus();
   });
   $("#runBlocks").on("click", function() {
     return runBlockly();
@@ -94,6 +97,7 @@ $(function() {
     $("#enonce h2").html(exo.titre);
     $("#enonce p").html(exo.enonce);
     $("#enonce").show();
+    $("#pythonTutor").hide().attr("src", "");
     workspace.clear();
     return $.ajax({
       type: "GET",
@@ -117,5 +121,14 @@ $(function() {
     return loadSample("seuil3", exo4);
   });
   Println('> 1) Il y a quelques exemples Blockly à tester...');
-  return Println('> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...');
+  Println('> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...');
+  return $("#pythonTutorGo").on("click", function() {
+    var afterURI, beforeURI, code, uri;
+    beforeURI = "http://pythontutor.com/iframe-embed.html#code=";
+    code = encodeURIComponent(escape(editor.getValue())).replace(/%25/g, "%");
+    afterURI = "&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false";
+    uri = beforeURI + code + afterURI;
+    console.log(uri);
+    return $("#pythonTutor").show().attr("src", uri);
+  });
 });

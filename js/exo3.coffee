@@ -39,13 +39,18 @@ $ ->
   divsPython  = "#pythonMode,  #boutons_editor"
   divsBlockly = "#blocklyMode, #boutons_blockly, .blocklyToolboxDiv"
   
-  $( ".toggleMode" ).on "click", ->  
-    $( divsPython ).toggle()
-    $( divsBlockly).toggle()
-    if $( "#pythonMode" ).is( ":visible" )
-      texte = getPythonText()
-      editor.setValue tabuler(texte), -1
-      editor.focus()
+  $( ".toggleModetoB" ).on "click", ->  
+    $( divsPython ).hide()
+    $( divsBlockly).toshow()
+    $( "#pythonTutor" ).hide().attr "src", ""
+    
+  
+  $( ".toggleModetoE" ).on "click", ->  
+    $( divsPython ).show()
+    $( divsBlockly).hide()
+    texte = getPythonText()
+    editor.setValue tabuler(texte), -1
+    editor.focus()
     
   # Blockly events
   $( "#runBlocks"  ).on "click", -> runBlockly()
@@ -65,8 +70,8 @@ $ ->
     $( divsBlockly).show()
     $( "#enonce h2" ).html exo.titre
     $( "#enonce p" ).html exo.enonce
-
     $( "#enonce").show()
+    $( "#pythonTutor" ).hide().attr "src", ""
     workspace.clear()
     $.ajax
       type: "GET"
@@ -84,4 +89,18 @@ $ ->
   Println '> 1) Il y a quelques exemples Blockly à tester...'
   Println '> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...'
   
+  $( "#pythonTutorGo" ).on "click", ->
+    beforeURI ="http://pythontutor.com/iframe-embed.html#code="
+    code = encodeURIComponent(escape(editor.getValue())).replace(/%25/g, "%")
+    afterURI = "&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+    uri = beforeURI + code + afterURI
+    console.log uri
+    $( "#pythonTutor" ).show().attr "src", uri
+    
   
+    
+    
+    
+    
+    
+    
