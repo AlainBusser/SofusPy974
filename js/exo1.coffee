@@ -59,8 +59,8 @@ $ ->
       success: (xml) -> 
         Blockly.Xml.domToWorkspace $(xml).find("##{name}")[0], workspace
     
-  $( "#a1" ).on "click", -> loadSample( "affect1" )
-  $( "#a2" ).on "click", -> loadSample( "affect2" )
+  $( "#a1" ).on "click", -> loadSample( "affect2" )
+  $( "#a2" ).on "click", -> loadSample( "affect1" )
   
   # Afficher un message dans output
   Println 'Ceci est la console de sortie'
