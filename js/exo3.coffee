@@ -90,7 +90,7 @@ $ ->
   Println '> 2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...'
   
   $( "#pythonTutorGo" ).on "click", ->
-    beforeURI ="http://pythontutor.com/iframe-embed.html#code="
+    beforeURI ="https://pythontutor.com/iframe-embed.html#code="
     code = encodeURIComponent(escape(editor.getValue())).replace(/%25/g, "%")
     afterURI = "&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
     uri = beforeURI + code + afterURI
