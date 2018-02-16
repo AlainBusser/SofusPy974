@@ -160,8 +160,8 @@ tabuler = (code) ->
   tabus = ''
   k = 1
   while k <= 10
-    code = code.split('\n' + tabus + '  ').join('\n' + tabus + '\u0009')
-    tabus += '\u0009'
+    code = code.split('\n' + tabus + '  ').join('\n' + tabus + '    ')
+    tabus += '    '
     k++
   code
 
@@ -220,8 +220,8 @@ tabuler = (code) ->
   tabus = ''
   k = 1
   while k <= 10
-    code = code.split('\n' + tabus + '  ').join('\n' + tabus + '\u0009')
-    tabus += '\u0009'
+    code = code.split('\n' + tabus + '  ').join('\n' + tabus + '    ')
+    tabus += '    '
     k++
   code
 
