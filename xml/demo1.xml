@@ -1,60 +1,42 @@
 <xml id="demo1">
-  <block type="reset" id="aMMZ6cNCnVA#O~=!%[;u" x="0" y="0">
+  <block type="variables_set" id="GNlLBD`,p3ITkz,kPfJl" x="64" y="62">
+    <field name="VAR">nombre</field>
+    <value name="VALUE">
+      <block type="math_number" id="Z`,=R%M(*ZkoR`v(:9{u">
+        <field name="NUM">2</field>
+      </block>
+    </value>
     <next>
-      <block type="variables_set" id="}OY[g%,EEcm%hZO#Yko[">
-        <field name="VAR">taille</field>
-        <value name="VALUE">
-          <block type="math_number" id="?K0TKAA+T8C7:~ZV8_1?">
-            <field name="NUM">50</field>
+      <block type="controls_repeat_ext" id="{Le).aW,IeR`^X[B5}AN">
+        <value name="TIMES">
+          <block type="math_number" id="G5too?=;M`iqL.(wZ8q%">
+            <field name="NUM">8</field>
           </block>
         </value>
-        <next>
-          <block type="scratch_demander" id="ZxGMy5./[#cSka#YcEh5">
-            <field name="VAR">reponse</field>
-            <value name="TEXT">
-              <block type="text" id="R|`?/O@Mbsnv1JZ^p/[2">
-                <field name="TEXT">nombre de repetitions</field>
-              </block>
-            </value>
+        <statement name="DO">
+          <block type="sophus_inverser" id="1V,8tkPF{x{rmdA0Zjpr">
+            <field name="VAR">nombre</field>
             <next>
-              <block type="controls_repeat_ext" id="[Yx!sr52e0nAhTJERU)*">
-                <value name="TIMES">
-                  <block type="variables_get" id=":[FkleMkP*.gymxp%bf2">
-                    <field name="VAR">reponse</field>
+              <block type="sophus_augmenter" id="dE|0IOs(%.R82!-}6_6;" collapsed="true">
+                <field name="VAR">nombre</field>
+                <value name="DELTA">
+                  <block type="math_number" id="*[2lRYde~NF}n_9n#lqM">
+                    <field name="NUM">1</field>
                   </block>
                 </value>
-                <statement name="DO">
-                  <block type="var_gauche" id="oKo3d#;06h}!(E(`-w73">
-                    <value name="ANGLE">
-                      <block type="math_number" id="RSV76}?M/Z9S:GY`LwQA">
-                        <field name="NUM">90</field>
+                <next>
+                  <block type="text_print" id="`gVQ](|z|:fpoJ4U./44" collapsed="true">
+                    <value name="TEXT">
+                      <block type="variables_get" id="hRm}dxO9O?Ky!y/.Gt_|">
+                        <field name="VAR">nombre</field>
                       </block>
                     </value>
-                    <next>
-                      <block type="avancer" id="Dj?dWDC!-tG}QFVp4Cc7">
-                        <value name="NAME">
-                          <block type="variables_get" id="DW3P:eNmn[ZLHqS~Rx:Q">
-                            <field name="VAR">taille</field>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="sophus_augmenter" id="DnVvY4l])Zprjbp^Wn}_">
-                            <field name="VAR">taille</field>
-                            <value name="DELTA">
-                              <block type="math_number" id="S|s?LHBli`=}Fhb[0sUZ">
-                                <field name="NUM">10</field>
-                              </block>
-                            </value>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
                   </block>
-                </statement>
+                </next>
               </block>
             </next>
           </block>
-        </next>
+        </statement>
       </block>
     </next>
   </block>

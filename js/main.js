@@ -77,6 +77,17 @@ $(function() {
       }
     });
   });
+  $("button#d3").on("click", function() {
+    workspace.clear();
+    return $.ajax({
+      type: "GET",
+      url: "xml/demo3.xml",
+      dataType: "xml",
+      success: function(xml) {
+        return Blockly.Xml.domToWorkspace($(xml).find("#demo2")[0], workspace);
+      }
+    });
+  });
   Println('1) Il y a un exemple Blockly à tester...');
   return Println('2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...');
 });

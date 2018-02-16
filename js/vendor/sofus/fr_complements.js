@@ -6,7 +6,7 @@ Blockly.Msg.MATH_CHANGE_TITLE = "ajouter %2 à %1";
 Blockly.Msg.MATH_RANDOM_FLOAT_TITLE_RANDOM = "alea entre 0 et 1";
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = "definir";
 Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = "definir";
-Blockly.Msg.PROCEDURES_DEFRETURN_RETURN = "retourner";
+Blockly.Msg.PROCEDURES_DEFRETURN_RETURN = "renvoyer";
 
 Blockly.Msg.SOPHUS_CARRE_HELPURL = "";
 Blockly.Msg.SOPHUS_CARRE_TITLE = "%1 élever %2 %3";

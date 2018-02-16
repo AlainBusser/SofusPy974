@@ -234,10 +234,12 @@ nav a:hover {
 
     nav a {
         float: left;
-        width: 27%;
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
+        width: 5em;
+        height: 100%;
+        line-height: 64px;
+        margin: 5px 2px 0 2px;
+        padding: 0.02px;
+        border-radius : 25px 25px 0 0;
     }
 
     nav li:first-child a {

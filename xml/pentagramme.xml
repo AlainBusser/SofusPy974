@@ -1,0 +1,67 @@
+<xml id="pentagramme" xmlns="http://www.w3.org/1999/xhtml">
+  <block type="reset" id="22{`5)]v%AXI^wCRVjIq" x="82" y="66">
+    <next>
+      <block type="controls_repeat_ext" id="`+MzaVLFZy-DSL_1q3]R">
+        <value name="TIMES">
+          <block type="math_number" id="iHaq7F+ge?:{h^PoOCdm">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="avancer" id="3*M]zD,^G5I7*d~]g;3~" collapsed="true">
+            <value name="NAME">
+              <block type="math_number" id="YwI2L_eI)xB6?1xW,aze">
+                <field name="NUM">120</field>
+              </block>
+            </value>
+            <next>
+              <block type="var_gauche" id="X]Q^#A7tR*HqY`}b-rzn" collapsed="true">
+                <value name="ANGLE">
+                  <block type="math_number" id="FqfC(AAz31W/}bc_gW=^">
+                    <field name="NUM">144</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="var_droite" id="vDS){Dk@.`eX[Q7x:YYh" collapsed="true">
+            <value name="ANGLE">
+              <block type="math_number" id="70aN[!McjA#*O/!0KiWA">
+                <field name="NUM">36</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext" id="tYiwcJTColu#e1NEGY5q">
+                <value name="TIMES">
+                  <block type="math_number" id="bz4fw#Sf@mM/iV@r8,il">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="avancer" id="?s)N{ERIc{wERn7GWo5!" collapsed="true">
+                    <value name="NAME">
+                      <block type="math_number" id="I)IBQ1Ck.cfm6zZY6CPz">
+                        <field name="NUM">74</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="var_gauche" id="-W3orum5e-c^ti|O4eN-" collapsed="true">
+                        <value name="ANGLE">
+                          <block type="math_number" id="DSN3n9Mp:x0s:@^i#bg!">
+                            <field name="NUM">72</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

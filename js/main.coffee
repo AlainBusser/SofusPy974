@@ -62,6 +62,14 @@ $ ->
       dataType: "xml"
       success: (xml) -> Blockly.Xml.domToWorkspace $(xml).find("#demo2")[0], workspace
 
+  $( "button#d3" ).on "click", -> # à factoriser à l'occasion
+    workspace.clear()
+    $.ajax
+      type: "GET"
+      url: "xml/demo3.xml"
+      dataType: "xml"
+      success: (xml) -> Blockly.Xml.domToWorkspace $(xml).find("#demo2")[0], workspace
+
         
   Println '1) Il y a un exemple Blockly à tester...'
   Println '2) Pour passer de Blockly à Python, cliquez sur le bouton Editeur...'

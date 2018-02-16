@@ -1,0 +1,31 @@
+<xml id="pentagone2" xmlns="http://www.w3.org/1999/xhtml">
+  <block type="reset" id="22{`5)]v%AXI^wCRVjIq" x="112" y="125">
+    <next>
+      <block type="controls_repeat_ext" id="`+MzaVLFZy-DSL_1q3]R">
+        <value name="TIMES">
+          <block type="math_number" id="iHaq7F+ge?:{h^PoOCdm">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="avancer" id="3*M]zD,^G5I7*d~]g;3~">
+            <value name="NAME">
+              <block type="math_number" id="YwI2L_eI)xB6?1xW,aze">
+                <field name="NUM">80</field>
+              </block>
+            </value>
+            <next>
+              <block type="var_gauche" id="X]Q^#A7tR*HqY`}b-rzn">
+                <value name="ANGLE">
+                  <block type="math_number" id="FqfC(AAz31W/}bc_gW=^">
+                    <field name="NUM">144</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

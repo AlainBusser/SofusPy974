@@ -1,31 +1,79 @@
 <?xml version="1.0"?>
 <xml id="toolbox" style="display: none">
+    <category name="d&#xE9;placement">
+      <block type="avancer">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">80</field>
+          </block>
+        </value>
+      </block>
+      <block type="reculer">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">80</field>
+          </block>
+        </value>
+      </block>
+      <block type="tortue_teleport"/>
+      <block type="cacher_tortue"/>
+      <block type="montrer_tortue"/>
+    </category>
+    <category name="rotations">
+      <block type="var_gauche">
+        <value name="ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+      </block>
+      <block type="var_droite">
+        <value name="ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+      </block>
+      <block type="mettre_angle">
+        <value name="ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+      </block>
+      <block type="tourner_vers_tortue_var"/>
+    </category>
+    <category name="dessin">
+      <category name="stylo">
+        <block type="scribe"/>
+        <block type="baisser_stylo"/>
+        <block type="lever_stylo"/>
+        <block type="couleur_stylo"/>
+        <block type="tampon"/>
+      </category>
+      <category name="gomme">
+        <block type="eff_svg"/>
+        <block type="axes"/>
+        <block type="reset"/>
+        <block type="grille"/>
+        <block type="axeX"/>
+        <block type="axeY"/>
+      </category>
+    </category>
+    <category name="multitortues">
+      <category name="donn&#xE9;es">
+        <block type="tortue_x"/>
+        <block type="tortue_y"/>
+        <block type="tortue_t"/>
+        <block type="tortue_c"/>
+        <block type="distance_avec_tortue_var"/>
+      </category>
+      <category name="gestion">
+        <block type="choisir_tortue_var"/>
+        <block type="creer_tortue_var"/>
+      </category>
+    </category>
   <category name="Variables" custom="VARIABLE"/>
-  <category name="Entrees-Sorties">
-    <block type="text_print">
-      <value name="TEXT">
-        <shadow type="text">
-          <field name="TEXT">blabla</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="text_print">
-      <value name="TEXT">
-        <block type="variables_get">
-				</block>
-      </value>
-    </block>
-    <block type="text_prompt">
-      <field name="TYPE">NUMBER</field>
-    </block>
-    <block type="scratch_demander">
-      <value name="TEXT">
-        <block type="text">
-          <field name="TEXT"/>
-        </block>
-      </value>
-    </block>
-  </category>
   <category name="Math">
     <category name="constantes">
       <block type="math_number"/>
@@ -77,8 +125,8 @@
           </block>
         </value>
       </block>
-      <block type="math_on_list"/>
     </category>
+  </category>
     <category name="transformations (sofus)">
       <category name="transformations">
         <block type="sophus_augmenter">
@@ -169,7 +217,6 @@
         </block>
       </category>
     </category>
-  </category>
   <category name="Conditionnelles">
     <block type="controls_if"/>
     <block type="controls_if">
@@ -214,4 +261,5 @@
     </block>
   </category>
   <category name="Sous-programmes" custom="PROCEDURE"/>
+
 </xml>
