@@ -6,7 +6,7 @@ editor.getSession().setMode 'ace/mode/python'
 $ ->
   $.ajax
     type: "GET"
-    url: "xml/exo1-toolbox.xml"
+    url: "xml/exo0-toolbox.xml"
     dataType: "xml"
     success: (xml) ->
       workspace = Blockly.inject 'blocklyDiv',

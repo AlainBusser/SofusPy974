@@ -44,21 +44,13 @@
       <block type="tourner_vers_tortue_var"/>
     </category>
     <category name="dessin">
-      <category name="stylo">
         <block type="scribe"/>
         <block type="baisser_stylo"/>
         <block type="lever_stylo"/>
         <block type="couleur_stylo"/>
         <block type="tampon"/>
-      </category>
-      <category name="gomme">
         <block type="eff_svg"/>
-        <block type="axes"/>
         <block type="reset"/>
-        <block type="grille"/>
-        <block type="axeX"/>
-        <block type="axeY"/>
-      </category>
     </category>
     <category name="multitortues">
       <category name="donn&#xE9;es">

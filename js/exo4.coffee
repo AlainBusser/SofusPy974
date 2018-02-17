@@ -19,7 +19,7 @@ exo4 =
 $ ->
   $.ajax
     type: "GET"
-    url: "xml/turtle-toolbox.xml"
+    url: "xml/exo4-toolbox.xml"
     dataType: "xml"
     success: (xml) ->
       workspace = Blockly.inject 'blocklyDiv',
@@ -68,7 +68,6 @@ $ ->
     $( "#enonce h2" ).html exo.titre
     $( "#enonce p" ).html exo.enonce
     $( "#enonce").show()
-    $( "#pythonTutor" ).hide().attr "src", ""
     workspace.clear()
     $.ajax
       type: "GET"
@@ -82,8 +81,5 @@ $ ->
   $( "#t2" ).on "click", -> loadSample( "pentagone2", exo3 )
   $( "#t3" ).on "click", -> loadSample( "pentagramme", exo4 )
   
-  # Afficher un message dans output
-  Println 'Ceci est la console de sortie'
-  Println 'Les affichages "print" se feront ici'
   
   

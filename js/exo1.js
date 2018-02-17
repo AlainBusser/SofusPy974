@@ -13,7 +13,7 @@ $(function() {
   var divsBlockly, divsPython, loadSample;
   $.ajax({
     type: "GET",
-    url: "xml/exo1-toolbox.xml",
+    url: "xml/exo0-toolbox.xml",
     dataType: "xml",
     success: function(xml) {
       workspace = Blockly.inject('blocklyDiv', {

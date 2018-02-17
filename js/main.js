@@ -84,7 +84,7 @@ $(function() {
       url: "xml/demo3.xml",
       dataType: "xml",
       success: function(xml) {
-        return Blockly.Xml.domToWorkspace($(xml).find("#demo2")[0], workspace);
+        return Blockly.Xml.domToWorkspace($(xml).find("#demo3")[0], workspace);
       }
     });
   });

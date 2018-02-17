@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<xml id="toolbox" style="display: none">
+      <block type="avancer">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">80</field>
+          </block>
+        </value>
+      </block>
+      <block type="reculer">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">80</field>
+          </block>
+        </value>
+      </block>
+      <block type="var_gauche">
+        <value name="ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+      </block>
+      <block type="var_droite">
+        <value name="ANGLE">
+          <block type="math_number">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_number"/>
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+    </block>
+
+</xml>

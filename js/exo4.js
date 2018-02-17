@@ -33,7 +33,7 @@ $(function() {
   var divsBlockly, divsPython, loadSample;
   $.ajax({
     type: "GET",
-    url: "xml/turtle-toolbox.xml",
+    url: "xml/exo4-toolbox.xml",
     dataType: "xml",
     success: function(xml) {
       workspace = Blockly.inject('blocklyDiv', {
@@ -97,7 +97,6 @@ $(function() {
     $("#enonce h2").html(exo.titre);
     $("#enonce p").html(exo.enonce);
     $("#enonce").show();
-    $("#pythonTutor").hide().attr("src", "");
     workspace.clear();
     return $.ajax({
       type: "GET",
@@ -117,9 +116,7 @@ $(function() {
   $("#t2").on("click", function() {
     return loadSample("pentagone2", exo3);
   });
-  $("#t3").on("click", function() {
+  return $("#t3").on("click", function() {
     return loadSample("pentagramme", exo4);
   });
-  Println('Ceci est la console de sortie');
-  return Println('Les affichages "print" se feront ici');
 });

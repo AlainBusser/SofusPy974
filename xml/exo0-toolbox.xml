@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<xml id="toolbox" style="display: none">
+  <category name="Variables" custom="VARIABLE"/>
+  <category name="Entrees-Sorties">
+    <block type="text_print">
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">blabla</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_print">
+      <value name="TEXT">
+        <block type="variables_get">
+				</block>
+      </value>
+    </block>
+    <block type="text_prompt">
+      <field name="TYPE">NUMBER</field>
+    </block>
+    <block type="scratch_demander">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT"/>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="Math">
+      <block type="math_number"/>
+      <block type="math_constant"/>
+      <block type="math_arithmetic">
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_single">
+        <field name="OP">ROOT</field>
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_trig">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">45</field>
+          </shadow>
+        </value>
+      </block>
+  </category>
+</xml>

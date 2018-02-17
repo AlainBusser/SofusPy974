@@ -72,9 +72,9 @@
                             <li>En mode Blockly, on place des blocs pour construire un programme (comme avec Scratch)</li>
                             <li>En mode Python, on écrit un programme Python</li>
                         </ul>
-                        Chaque fois qu'on clique sur le bouton "éditeur", on passe d'un mode à l'autre.
+                        Chaque fois qu'on clique sur le bouton "éditeur", on passe de Blockly à Python. En cliquant sur "retour" on peut revenir à Blockly.
                         </p>
-                        <h3>Attention: Le passage de Python à Blockly efface le code Python</h3>
+                        <h3>Attention: Le retour de Python à Blockly efface le code Python, à moins de faire Control-Z pour rétablir la situation</h3>
 <pre id="titlebar"><img src="img/terminal.png" class="icon"> BusserToby@SofusPy974:~/dev/SofusPy974</pre>
 <pre id="message"   class="message"></pre>
 <pre id="output"    class="output" ></pre>
@@ -115,16 +115,16 @@
 
     <div id="boutons_editor">
 	    <button id="executer">
-	      <img src="img/flag.png" class="icon"> Executer</button>
+	      <img src="img/flag.png" class="icon"/> Executer</button>
 	    <input type="file" id="fileToLoadEdit" style="display: none" onchange="ouvrirFichierEdit(editor);" />
 	    <button onclick="ouvrirClickEdit();">
-	        <img src="img/python.png" class="icon"> Ouvrir</button>
+	        <img src="img/python.png" class="icon"/> Ouvrir</button>
 	    <button type="button" onclick="sauverFichierEdit(editor)">
-	        <img src="img/python.png" class="icon"> Sauver</button>
+	        <img src="img/python.png" class="icon"/> Sauver</button>
 	    <button class="toggleMode">
-	        <img src="img/blockly.png" class="icon"> Retour</button>
+	        <img src="img/blockly.png" class="icon"/> Retour</button>
 	    <button id="commandes">
-	      <img src="img/memo.png" class="icon"> Commandes</button>
+	      <img src="img/memo.png" class="icon"/> Commandes</button>
     </div>
     <canvas id="mycanvas" height="480px" width="800px"></canvas> 
 </div>
