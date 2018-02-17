@@ -10,7 +10,7 @@
       <block type="controls_repeat_ext" id="IQmp}:9%jJM~?%H?hOwE">
         <value name="TIMES">
           <block type="math_number" id="4cu^}QJaq!0#9?66N{wH">
-            <field name="NUM">10</field>
+            <field name="NUM">5</field>
           </block>
         </value>
         <statement name="DO">
@@ -19,7 +19,7 @@
             <field name="DENOM">100</field>
             <value name="DELTA">
               <block type="math_number" id="rW5tnsT6FS8][hIL5|!=">
-                <field name="NUM">25</field>
+                <field name="NUM">5</field>
               </block>
             </value>
           </block>
