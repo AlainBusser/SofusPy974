@@ -65,6 +65,7 @@
       </block>
       <block type="math_number_property"/>
       <block type="math_round"/>
+      <block type="math_random_float"/>
       <block type="math_random_int">
         <value name="FROM">
           <block type="math_number">
