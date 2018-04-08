@@ -24,7 +24,12 @@
 	<script src="js/interpreter_texte.js"></script>
 	<script src="js/interpreter_scratch.js"></script>
 	<script src="js/vendor/jszip.js"></script>
+	<script src="js/pseudocode.js"></script>
 	<script src="js/fichiers.js"></script>
+    <script>afficherPseudocode = function() {
+  effacerOutput();
+  return Print(python2algo(getText()));
+};</script>
 </head>
 
 <body>
@@ -52,7 +57,7 @@
 	<button type="button" onclick="editeurToBlockly()" class="boutons"><img src="img/blockly.png">Retour</button>
 	<button type="button" onclick="plierDeplierEditeur()" class="boutons">Plier/Deplier</button>
 	<button type="button" onclick="commandesToBlockly()" class="boutons">Commandes</button>
-	<button type="button" onclick="commandesToBlockly()" class="boutons">Pseudocode</button>
+	<button type="button" onclick="afficherPseudocode()" class="boutons">Pseudocode</button>
 </div>
 </center>
 
