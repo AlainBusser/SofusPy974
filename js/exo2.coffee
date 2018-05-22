@@ -22,14 +22,20 @@ $ ->
      
       Blockly.Msg.VARIABLES_SET = 'mettre %2 dans %1'
       Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH = 'regrouper'
+      
+      updatePython = ->
+        code = Blockly.Python.workspaceToCode()
+        editor.setValue code
+      Blockly.addChangeListener updatePython
   
   # Toggle Blockly / Python
   divsPython  = "#pythonMode,  #boutons_editor"
   divsBlockly = "#blocklyMode, #boutons_blockly, .blocklyToolboxDiv"
+  $(divsPython).show()
   
   $( ".toggleMode" ).on "click", ->  
-    $( divsPython ).toggle()
-    $( divsBlockly).toggle()
+    $( divsPython ).show()
+    $( divsBlockly).show()
     if $( "#pythonMode" ).is( ":visible" )
       texte = getPythonText()
       editor.setValue tabuler(texte), -1
@@ -50,7 +56,7 @@ $ ->
   
   # Charger un fichier blockly depuis le repertoire xml/name.xml
   loadSample = (name) ->
-    $( divsPython ).hide()
+    $( divsPython ).show()
     $( divsBlockly).show()
     workspace.clear()
     $.ajax

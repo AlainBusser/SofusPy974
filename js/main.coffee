@@ -46,6 +46,7 @@ $ ->
     
   $( "#executer"  ).on "click", -> runPython(editor)
    
+  $( "#py2algo"           ).on "click",  -> afficherPseudocode()
   $( "button#d1" ).on "click", ->
     workspace.clear()
     $.ajax
